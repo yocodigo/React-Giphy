@@ -10,13 +10,17 @@ import ButtonExampleEmphasis from './button.js';
 
 class App extends React.Component {
 
+  handleClick() {
+    console.log("it worked!")
+    };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Get Giphy with React!</h1>
         </header> 
-          <ButtonExampleEmphasis />
+          <ButtonExampleEmphasis onClick={this.handleClick()}/>
       </div>
     );
   }
