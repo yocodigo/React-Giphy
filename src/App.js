@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import ButtonExampleEmphasis from './button.js';
+// import axios from 'axios';
+import ButtonExampleEmphasis from './components/button/button.js';
+import ImageExampleCircular from './components/images/images.js'
 
 // import button from './button.js';
 
@@ -10,9 +12,19 @@ import ButtonExampleEmphasis from './button.js';
 
 class App extends React.Component {
 
+  // constructor() {
+  //   super()
+  //   this.state = {
+
+  //   }
+
+  // }
+
   handleClick() {
     console.log("it worked!")
-    };
+    // axios.get(giphyUrl)
+    // .then(response => this.setState)
+  };
 
   render() {
     return (
@@ -21,6 +33,7 @@ class App extends React.Component {
           <h1 className="App-title">Get Giphy with React!</h1>
         </header> 
           <ButtonExampleEmphasis onClick={this.handleClick()}/>
+          <ImageExampleCircular />
       </div>
     );
   }
