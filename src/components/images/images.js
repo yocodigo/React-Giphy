@@ -6,7 +6,8 @@ const ImageExampleCircular = () => (
 
   <Image alt='image' style={styles} src={require('./bali.png')} size='medium' as='a'
   href='http://google.com'
-  target='_blank'/> 
+  target='_blank'
+  rounded /> 
   
 
 )
