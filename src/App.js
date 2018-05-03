@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 // import axios from 'axios';
-import ButtonExampleEmphasis from './components/button/button.js';
-import ImageExampleCircular from './components/images/images.js'
+import ButtonExampleEmphasis from './components/button';
+import ImageExampleCircular from './components/images'
 
 // import button from './button.js';
 
@@ -33,7 +33,7 @@ class App extends React.Component {
           <h1 className="App-title">Get Giphy with React!</h1>
         </header> 
           <ButtonExampleEmphasis onClick={this.handleClick()}/>
-          <ImageExampleCircular />
+          <ImageExampleCircular /> 
       </div>
     );
   }
