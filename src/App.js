@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Grid, Container, Segment } from 'semantic-ui-react';
+import { Grid, Container, Segment, Header } from 'semantic-ui-react';
 // import axios from 'axios';
-import ButtonExampleEmphasis from './components/button';
+import GiphyButton from './components/button';
 import ImageExampleCircular from './components/images'
 
 // import button from './button.js';
@@ -11,42 +11,35 @@ import ImageExampleCircular from './components/images'
 // let searchValue = 'cats';
 // let giphyUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag='+searchValue;
 
-const styles = {
+const containerStyles = {
   width: 'auto',
   height: '75'
 }
+
+const columnStyles = {
+  padding: '0',
+  float: 'right'
+  
+}
+
 class App extends React.Component {
-
-  // constructor() {
-  //   super()
-  //   this.state = {
-
-  //   }
-
-  // }
-
-  async _handleClick() {
-    console.log('it worked!');
-    // axios.get(giphyUrl)
-    // .then(response => this.setState)
-  }
 
   render() {
     return (
-      <Container style={ styles  } textAlign='center'>
-      <Segment inverted>
-        <header className="App-header">
-          <h1 className="App-title">Get Giphy with React!</h1>
-        </header>
-      </Segment>
-      
-        <Grid columns={8} stackable>
-          <Grid.Column> 
-              <ButtonExampleEmphasis onPress={ () => this._handleClick() }/>
+      <Container style={ containerStyles } textAlign='center'>
+        <Segment inverted>
+          <Header as='h1'>Get Giphy with React!</Header>    
+        </Segment>
+        <Grid columns={8} divided>
+          <Grid.Column style= { columnStyles }> 
+              <GiphyButton/>
           </Grid.Column>
           <Grid.Column> 
-            <ImageExampleCircular /> 
-          </Grid.Column>  
+            <ImageExampleCircular style= { columnStyles.paddingLeft }/> 
+          </Grid.Column>
+          <Grid.Column> 
+            <ImageExampleCircular style= { columnStyles.paddingLeft }/> 
+          </Grid.Column>    
         </Grid>
       </Container>
     );
