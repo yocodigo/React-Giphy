@@ -6,8 +6,17 @@ let styles = {
     marginTop: 30
 }
 
-const ButtonExampleEmphasis = () => (
-    <Button className={'primary'} style={styles}>Giphy Me!</Button>
-)
+export default class GiphyButton extends React.Component {
 
-export default ButtonExampleEmphasis;
+    handleClick = () => {
+        console.log('it worked!');
+        // axios.get(giphyUrl)
+        // .then(response => this.setState)
+      }
+
+    render() {    
+        return (
+            <Button  onClick={ this.handleClick } className={'primary'} style={styles}>Giphy Me!</Button>
+        )
+    }
+}
