@@ -46,7 +46,7 @@ class App extends React.Component {
             <Button  onClick={ this.handleClick } className="ui inverted green button" style={Styles}>Giphy Me!</Button>
           </Grid.Column>
           <Grid.Column> 
-            <ImageExampleCircular style= { columnStyles.paddingLeft }/> 
+            <ImageExampleCircular src={ this.state.giphy }/> 
           </Grid.Column>    
         </Grid>
       </Container>
