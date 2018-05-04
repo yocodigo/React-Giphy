@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import Styles from './styles.js';
+import Styles from './components/button';
 import axios from 'axios';
 
 let apiKey = 'dc6zaTOxFJmzC';
@@ -9,6 +9,14 @@ let searchValue = 'cats';
 let giphyUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag='+searchValue;
 
 export default class GiphyButton extends React.Component {
+
+    constructor() {
+        super() 
+            this.state = {
+                
+            }
+
+    }
 
     handleClick = () => {
         axios.get(giphyUrl)

@@ -1,8 +1,14 @@
 import React from 'react';
 import './App.css';
-import { Grid, Container, Segment, Header } from 'semantic-ui-react';
-import GiphyButton from './components/button';
+import { Grid, Container, Segment, Header, Button } from 'semantic-ui-react';
 import ImageExampleCircular from './components/images'
+import 'semantic-ui-css/semantic.min.css';
+import Styles from './components/button/styles.js';
+import axios from 'axios';
+
+let apiKey = 'dc6zaTOxFJmzC';
+let searchValue = 'cats';
+let giphyUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag='+searchValue;
 
 const containerStyles = {
   width: 'auto',
@@ -16,19 +22,28 @@ const columnStyles = {
 }
 
 class App extends React.Component {
+  
+  state = {
+    giphy: ''
+  }
+
+  handleClick = () => {
+    axios.get(giphyUrl)
+    .then(response =>  this.setState({giphy: response.data.data.image_original_url})
+    // .then(response => console.log("You are connected to Giphy via Axios! This is your response: ") + console.log(response.data.data.image_original_url
+    )
+    console.log("This is the result from the state change: " + this.state.giphy);
+  }
 
   render() {
     return (
       <Container style={ containerStyles } textAlign='center'>
-        <Segment inverted color='blue' secondary raised>
+        <Segment className="ui tertiary" raised>
           <Header as='h1'>Get Giphy with React!</Header>    
         </Segment>
         <Grid columns={8} >
           <Grid.Column style= { columnStyles }> 
-              <GiphyButton />
-          </Grid.Column>
-          <Grid.Column> 
-            <ImageExampleCircular style= { columnStyles.paddingLeft }/> 
+            <Button  onClick={ this.handleClick } className="ui inverted green button" style={Styles}>Giphy Me!</Button>
           </Grid.Column>
           <Grid.Column> 
             <ImageExampleCircular style= { columnStyles.paddingLeft }/> 
