@@ -10,8 +10,13 @@ let apiKey = 'dc6zaTOxFJmzC';
 let searchValue = 'cats';
 let giphyUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag='+searchValue;
 
-const containerStyles = {
+const outerContainerStyles = {
   width: 'auto',
+  height: '75'
+}
+
+const innerContainerStyles = {
+  width: '90%',
   height: '75'
 }
 
@@ -24,6 +29,7 @@ const columnStyles = {
 class App extends React.Component {
   
   state = {
+    word: '',
     giphy: []
   }
 
@@ -36,18 +42,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container style={ containerStyles } textAlign='center'>
+      <Container style={ outerContainerStyles } textAlign='center'>
         <Segment className="ui tertiary" raised>
           <Header as='h1'>Get Giphy with React!</Header>    
         </Segment>
-        <Grid columns={8} >
-          <Grid.Column style= { columnStyles }> 
-            <Button  onClick={ this.handleClick } className="ui inverted green button" style={Styles}>Giphy Me!</Button>
-          </Grid.Column>
-          <Grid.Column> 
-            <ImageExampleCircular src={ this.state.giphy }/> 
-          </Grid.Column>    
-        </Grid>
+        <Container style={ innerContainerStyles } >
+          <Grid>
+            <Grid.Column width={1} style= { columnStyles }> 
+              <Button  onClick={ this.handleClick } className="ui inverted green button" style={Styles}>Giphy Me!</Button>
+            </Grid.Column>
+     {/* <Grid.Column>
+     <Grid columns={4} > */}
+                {this.state.giphy.map((giph) => (
+                <Grid.Column width={3}> 
+                  <ImageExampleCircular src={ giph }/> 
+                </Grid.Column>
+                ))}
+       {/*       </Grid>
+            </Grid.Column>  */}    
+          </Grid>
+        </Container>
       </Container>
     );
   }
