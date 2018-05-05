@@ -24,6 +24,7 @@ const columnStyles = {
 class App extends React.Component {
   
   state = {
+    word: '',
     giphy: []
   }
 
@@ -44,9 +45,11 @@ class App extends React.Component {
           <Grid.Column style= { columnStyles }> 
             <Button  onClick={ this.handleClick } className="ui inverted green button" style={Styles}>Giphy Me!</Button>
           </Grid.Column>
+          {this.state.giphy.map((giph) => (
           <Grid.Column> 
-            <ImageExampleCircular src={ this.state.giphy }/> 
-          </Grid.Column>    
+            <ImageExampleCircular src={ giph }/> 
+          </Grid.Column>
+          ))}    
         </Grid>
       </Container>
     );
