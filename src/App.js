@@ -24,13 +24,12 @@ const columnStyles = {
 class App extends React.Component {
   
   state = {
-    giphy: ''
+    giphy: []
   }
 
   handleClick = () => {
     axios.get(giphyUrl)
-    .then(response =>  this.setState({giphy: response.data.data.image_original_url})
-    // .then(response => console.log("You are connected to Giphy via Axios! This is your response: ") + console.log(response.data.data.image_original_url
+    .then(response =>  this.setState({ giphy: [...this.state.giphy, response.data.data.image_original_url ]})
     )
     console.log("This is the result from the state change: " + this.state.giphy);
   }
